@@ -28,12 +28,6 @@ public class OpenWeatherMapTest {
          //then
         assertNotNull(feed);
         assertNotNull(feed.main);
-//        assertNotNull(feed.features.get(0).properties);
-//        assertNotNull(feed.features.get(0).properties.place);
         assertTrue(feed.main.temp > 0);
-//        assertTrue(feed.features.get(0).properties.time > 0);
-//        assertNotNull(feed.features.get(0).geometry);
-//        assertNotNull(feed.features.get(0).geometry.coordinates);
-//        assertFalse(feed.features.get(0).geometry.coordinates.isEmpty());
     }
 }
