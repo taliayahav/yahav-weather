@@ -17,6 +17,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class OpenWeatherMapController {
@@ -33,7 +34,7 @@ public class OpenWeatherMapController {
     @FXML
     ArrayList<Label> Days;
     @FXML
-    ArrayList<Image> Icons;
+    ArrayList<ImageView> Icons;
     @FXML
     ArrayList<Label> Temperature;
 
@@ -79,7 +80,11 @@ public class OpenWeatherMapController {
             @Override
             public void run() {
                 for(int i = 0; i <6; i++){
-
+//                    String forecast = openWeatherMapForecast.getForcastFor(i).getDate().toString();
+//                    Days.get(i).setText(forecast.substring(0, forecast.indexOf(" ")));
+                    Days.get(i).setText(openWeatherMapForecast.getForcastFor(i).getDate() + "");
+                    Temperature.get(i).setText(openWeatherMapForecast.getForcastFor(i).main.temp + "");
+                    Icons.get(i).setImage(new Image(openWeatherMapForecast.getForcastFor(i).weather.get(0).getIconUrl()));
                 }
             }
         });
