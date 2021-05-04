@@ -5,10 +5,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -40,12 +37,16 @@ public class OpenWeatherMapController {
 
     @FXML
     public void initialize(){
+        ToggleGroup group = new ToggleGroup();
+        Fahrenheit.setToggleGroup(group);
+        Celsius.setToggleGroup(group);
+        Fahrenheit.setSelected(true);
+        String units = Celsius.isSelected() ? "metric" : "imperial";
     }
 
     public void onSubmit(MouseEvent mouseEvent) {
         OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
         OpenWeatherMapService service = factory.newInstance();
-        String units = Celsius.isSelected() ? "metric" : "imperial";
 
         Disposable disposable = service.getWeatherForecast(locationAnswer.getText(), "units")
                 // request the data in the background
@@ -80,8 +81,6 @@ public class OpenWeatherMapController {
             @Override
             public void run() {
                 for(int i = 0; i <6; i++){
-//                    String forecast = openWeatherMapForecast.getForcastFor(i).getDate().toString();
-//                    Days.get(i).setText(forecast.substring(0, forecast.indexOf(" ")));
                     Days.get(i).setText(openWeatherMapForecast.getForcastFor(i).getDate() + "");
                     Temperature.get(i).setText(openWeatherMapForecast.getForcastFor(i).main.temp + "");
                     Icons.get(i).setImage(new Image(openWeatherMapForecast.getForcastFor(i).weather.get(0).getIconUrl()));
