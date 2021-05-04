@@ -12,7 +12,7 @@ import javafx.stage.Stage;
         public void start(Stage stage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("/weather_application.fxml"));
 
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 550, 600);
 
             stage.setTitle("Weather");
             stage.setScene(scene);

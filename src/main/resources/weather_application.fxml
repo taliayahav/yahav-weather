@@ -7,13 +7,73 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+
 <GridPane xmlns="http://javafx.com/javafx"
           fx:controller="yahav.openweathermap.OpenWeatherMapController"
           xmlns:fx="http://javafx.com/fxml"
-          prefHeight="400.0" prefWidth="600.0" hgap="10" vgap ="4">
+          prefHeight="600.0" prefWidth="550.0" hgap="6" vgap="6"
+          style="-fx-background-color: lightskyblue;">
     <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-    <Label text="Location:"
-           GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-    <TextField GridPane.columnSpan="10"
-               GridPane.columnIndex="7" GridPane.rowIndex="3"/>
-</GridPane>
+
+        <Label text="Location:"
+               GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        <TextField fx:id="locationAnswer" GridPane.columnSpan="15"
+                   GridPane.columnIndex="7" GridPane.rowIndex="1"/>
+                <RadioButton fx:id="Celsius" text= "Celsius" GridPane.columnIndex="25" GridPane.rowIndex="1"/>
+                <RadioButton fx:id="Fahrenheit" text= "Fahrenheit" GridPane.columnIndex="28" GridPane.rowIndex="1"/>
+        <ToggleButton fx:id="submitButton" onMouseClicked="#onSubmit" text= "Submit"
+                      GridPane.columnIndex="18" GridPane.rowIndex="4"/>
+
+    <Label fx:id="weatherForecast" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.columnSpan="20"/>
+    <Label fx:id="currentWeather" GridPane.columnIndex="15" GridPane.rowIndex="7" GridPane.columnSpan="20"/>
+    <ImageView fx:id="currentIconImage" GridPane.columnIndex="20" GridPane.rowIndex="7" GridPane.columnSpan="20"/>
+
+    <ImageView fx:id="day1Icon" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <ImageView fx:id="day2Icon" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <ImageView fx:id="day3Icon" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <ImageView fx:id="day4Icon" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+    <ImageView fx:id="day5Icon" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+
+    <Label fx:id="day1"  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label fx:id="day2"  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label fx:id="day3"  GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Label fx:id="day4" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+    <Label fx:id="day5" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+
+    <Label fx:id="day1Temp"  GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label fx:id="day2Temp"  GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label fx:id="day3Temp"  GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label fx:id="day4Temp"  GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <Label fx:id="day5Temp" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+    <fx:define>
+        <ArrayList fx:id="Icons" >
+            <fx:reference source="day1Icon"/>
+            <fx:reference source="day2Icon"/>
+            <fx:reference source="day3Icon"/>
+            <fx:reference source="day4Icon"/>
+            <fx:reference source="day5Icon"/>
+        </ArrayList>
+    </fx:define>
+
+    <fx:define>
+        <ArrayList fx:id="Days">
+            <fx:reference source="day1"/>
+            <fx:reference source="day2"/>
+            <fx:reference source="day3"/>
+            <fx:reference source="day4"/>
+            <fx:reference source="day5"/>
+        </ArrayList>
+    </fx:define>
+
+    <fx:define>
+        <ArrayList fx:id="Temperature" >
+            <fx:reference source="day1Temp"/>
+            <fx:reference source="day2Temp"/>
+            <fx:reference source="day3Temp"/>
+            <fx:reference source="day4Temp"/>
+            <fx:reference source="day5Temp"/>
+        </ArrayList>
+    </fx:define>
+        </GridPane>
