@@ -12,7 +12,7 @@
 <GridPane xmlns="http://javafx.com/javafx"
           fx:controller="yahav.openweathermap.OpenWeatherMapController"
           xmlns:fx="http://javafx.com/fxml"
-          prefHeight="850.0" prefWidth="800.0" hgap="6" vgap="6"
+          prefHeight="825.0" prefWidth="800.0" hgap="6" vgap="6"
           style="-fx-background-color: lightskyblue;" >
     <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
 

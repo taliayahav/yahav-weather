@@ -41,14 +41,14 @@ public class OpenWeatherMapController {
         Fahrenheit.setToggleGroup(group);
         Celsius.setToggleGroup(group);
         Fahrenheit.setSelected(true);
-        String units = Celsius.isSelected() ? "metric" : "imperial";
     }
 
     public void onSubmit(MouseEvent mouseEvent) {
+        String units = Celsius.isSelected() ? "metric" : "imperial";
         OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
         OpenWeatherMapService service = factory.newInstance();
 
-        Disposable disposable = service.getWeatherForecast(locationAnswer.getText(), "units")
+        Disposable disposable = service.getWeatherForecast(locationAnswer.getText(), units)
                 // request the data in the background
                 .subscribeOn(Schedulers.io())
                 // work with the data in the foreground
@@ -56,7 +56,7 @@ public class OpenWeatherMapController {
                 // work with the feed whenever it gets downloaded
                 .subscribe(this::onOpenWeatherMapForecast, this::onError);
 
-        Disposable currentDisposable = service.getCurrentWeather(locationAnswer.getText(), "units")
+        Disposable currentDisposable = service.getCurrentWeather(locationAnswer.getText(), units)
                 // request the data in the background
                 .subscribeOn(Schedulers.io())
                 // work with the data in the foreground
