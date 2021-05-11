@@ -50,7 +50,6 @@ public class OpenWeatherMapControllerTest {
         controller.fahrenheit = fahrenheit;
         doReturn(true).when(controller.celsius).isSelected();
         //doReturn(Single.never()).when(controller.service).getWeatherForecast("New York","imperial");
-        doReturn("New York").when(controller.locationAnswer).getText();
 
         //when
         controller.onSubmit(mock(MouseEvent.class));
@@ -70,6 +69,7 @@ public class OpenWeatherMapControllerTest {
         openWeatherMapFeed.main = mock(OpenWeatherMapFeed.Main.class);
         openWeatherMapFeed.main.temp = 70.00;
         doReturn("70.00").when(controller.currentWeather).getText();
+        doReturn("New York").when(controller.locationAnswer).getText();
 
         //when
         controller.onOpenWeatherMapFeed(openWeatherMapFeed);
@@ -79,6 +79,17 @@ public class OpenWeatherMapControllerTest {
     }
     @Test
     public void onOpenWeatherMapForecast(){
+        //given
+        OpenWeatherMapService service = factory.newInstance();
+        OpenWeatherMapController controller = new OpenWeatherMapController();
+        OpenWeatherMapForecast openWeatherMapForecast = mock(OpenWeatherMapForecast.class);
+
+
+        //when
+        controller.onOpenWeatherMapForecast(openWeatherMapForecast);
+
+        //then
+
 
     }
 }

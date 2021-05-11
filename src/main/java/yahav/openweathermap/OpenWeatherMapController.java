@@ -79,7 +79,7 @@ public class OpenWeatherMapController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0; i < 6; i++){
+                for(int i = 0; i < days.size(); i++){
                     days.get(i).setText(openWeatherMapForecast.getForcastFor(i).getDate() + "");
                     temperature.get(i).setText(openWeatherMapForecast.getForcastFor(i).main.temp + "");
                     icons.get(i).setImage(new Image(openWeatherMapForecast.getForcastFor(i).weather.get(0).getIconUrl()));
