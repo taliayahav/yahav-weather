@@ -1,2 +1,2 @@
-![OpenWeatherMap](/Users/taliayahav/Desktop/screenshots/weatherStarter.png)
-![OpenWeatherMap](/Users/taliayahav/Desktop/screenshots/weatherFinished.png)
+![OpenWeatherMapService](/Users/taliayahav/Desktop/screenshots/weatherStarter.png)
+![OpenWeatherMapService](/Users/taliayahav/Desktop/screenshots/weatherFinished.png)
