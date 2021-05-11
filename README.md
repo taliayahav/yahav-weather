@@ -1,1 +1,1 @@
-![OpenWeatherMap](/screenshots/weatherFinished.png)
+![OpenWeatherMap](screenshots/weatherFinished.png)
