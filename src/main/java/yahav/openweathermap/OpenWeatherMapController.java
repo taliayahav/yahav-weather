@@ -3,18 +3,13 @@ package yahav.openweathermap;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class OpenWeatherMapController {
@@ -23,28 +18,28 @@ public class OpenWeatherMapController {
     @FXML
     TextField locationAnswer;
     @FXML
-    RadioButton Celsius, Fahrenheit;
+    RadioButton celsius, fahrenheit;
     @FXML
     Label weatherForecast, currentWeather;
     @FXML
     ImageView currentIconImage;
     @FXML
-    ArrayList<Label> Days;
+    ArrayList<Label> days;
     @FXML
-    ArrayList<ImageView> Icons;
+    ArrayList<ImageView> icons;
     @FXML
-    ArrayList<Label> Temperature;
+    ArrayList<Label> temperature;
 
     @FXML
     public void initialize(){
         ToggleGroup group = new ToggleGroup();
-        Fahrenheit.setToggleGroup(group);
-        Celsius.setToggleGroup(group);
-        Fahrenheit.setSelected(true);
+        fahrenheit.setToggleGroup(group);
+        celsius.setToggleGroup(group);
+        fahrenheit.setSelected(true);
     }
 
     public void onSubmit(MouseEvent mouseEvent) {
-        String units = Celsius.isSelected() ? "metric" : "imperial";
+        String units = celsius.isSelected() ? "metric" : "imperial";
         OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
         OpenWeatherMapService service = factory.newInstance();
 
@@ -80,10 +75,10 @@ public class OpenWeatherMapController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0; i <6; i++){
-                    Days.get(i).setText(openWeatherMapForecast.getForcastFor(i).getDate() + "");
-                    Temperature.get(i).setText(openWeatherMapForecast.getForcastFor(i).main.temp + "");
-                    Icons.get(i).setImage(new Image(openWeatherMapForecast.getForcastFor(i).weather.get(0).getIconUrl()));
+                for(int i = 0; i < 6; i++){
+                    days.get(i).setText(openWeatherMapForecast.getForcastFor(i).getDate() + "");
+                    temperature.get(i).setText(openWeatherMapForecast.getForcastFor(i).main.temp + "");
+                    icons.get(i).setImage(new Image(openWeatherMapForecast.getForcastFor(i).weather.get(0).getIconUrl()));
                 }
             }
         });

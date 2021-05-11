@@ -20,7 +20,7 @@
                GridPane.columnIndex="3" GridPane.rowIndex="0"/>
         <TextField fx:id="locationAnswer" GridPane.columnSpan="15"
                    GridPane.columnIndex="7" GridPane.rowIndex="0"/>
-                <RadioButton fx:id="Celsius" text= "Celsius" GridPane.columnIndex="25" GridPane.rowIndex="0"/>
+                <RadioButton fx:id="celsius" text= "Celsius" GridPane.columnIndex="25" GridPane.rowIndex="0"/>
                 <RadioButton fx:id="Fahrenheit" text= "Fahrenheit" GridPane.columnIndex="28" GridPane.rowIndex="0"/>
         <ToggleButton fx:id="submitButton" onMouseClicked="#onSubmit" text= "Submit"
                       GridPane.columnIndex="18" GridPane.rowIndex="1"/>
@@ -48,7 +48,7 @@
     <ImageView fx:id="day5Icon" GridPane.columnIndex="10" GridPane.rowIndex="12"/>
 
     <fx:define>
-        <ArrayList fx:id="Icons" >
+        <ArrayList fx:id="icons" >
             <fx:reference source="day1Icon"/>
             <fx:reference source="day2Icon"/>
             <fx:reference source="day3Icon"/>
@@ -58,7 +58,7 @@
     </fx:define>
 
     <fx:define>
-        <ArrayList fx:id="Days">
+        <ArrayList fx:id="days">
             <fx:reference source="day1"/>
             <fx:reference source="day2"/>
             <fx:reference source="day3"/>
@@ -68,7 +68,7 @@
     </fx:define>
 
     <fx:define>
-        <ArrayList fx:id="Temperature" >
+        <ArrayList fx:id="temperature" >
             <fx:reference source="day1Temp"/>
             <fx:reference source="day2Temp"/>
             <fx:reference source="day3Temp"/>
