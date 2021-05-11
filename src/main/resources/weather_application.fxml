@@ -21,7 +21,7 @@
         <TextField fx:id="locationAnswer" GridPane.columnSpan="15"
                    GridPane.columnIndex="7" GridPane.rowIndex="0"/>
                 <RadioButton fx:id="celsius" text= "Celsius" GridPane.columnIndex="25" GridPane.rowIndex="0"/>
-                <RadioButton fx:id="fahrenheit" text= "fahrenheit" GridPane.columnIndex="28" GridPane.rowIndex="0"/>
+                <RadioButton fx:id="fahrenheit" text= "Fahrenheit" GridPane.columnIndex="28" GridPane.rowIndex="0"/>
         <ToggleButton fx:id="submitButton" onMouseClicked="#onSubmit" text= "Submit"
                       GridPane.columnIndex="18" GridPane.rowIndex="1"/>
 

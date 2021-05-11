@@ -57,7 +57,7 @@ public class OpenWeatherMapTest {
 
         // then
         assertNotNull(hourlyForecast);
-        assertEquals(13, hourlyForecast.getDate().getHours());
+        assertEquals(11, hourlyForecast.getDate().getHours());
     }
 
 }

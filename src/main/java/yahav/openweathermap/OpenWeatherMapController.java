@@ -39,10 +39,10 @@ public class OpenWeatherMapController {
 
     public void onSubmit(MouseEvent mouseEvent) {
         if (celsius.isSelected()) {
-            units = "imperial";
+            units = "metric";
         }
         else {
-            units = "metric";
+            units = "imperial";
         }
         OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
         OpenWeatherMapService service = factory.newInstance();
