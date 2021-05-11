@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 public class OpenWeatherMapController {
     @FXML
-    GridPane gridPane;
-    @FXML
     TextField locationAnswer;
     @FXML
     RadioButton celsius, fahrenheit;
@@ -29,6 +27,7 @@ public class OpenWeatherMapController {
     ArrayList<ImageView> icons;
     @FXML
     ArrayList<Label> temperature;
+    String units;
 
     @FXML
     public void initialize(){
@@ -39,7 +38,12 @@ public class OpenWeatherMapController {
     }
 
     public void onSubmit(MouseEvent mouseEvent) {
-        String units = celsius.isSelected() ? "metric" : "imperial";
+        if (celsius.isSelected()) {
+            units = "imperial";
+        }
+        else {
+            units = "metric";
+        }
         OpenWeatherMapServiceFactory factory = new OpenWeatherMapServiceFactory();
         OpenWeatherMapService service = factory.newInstance();
 
@@ -60,7 +64,7 @@ public class OpenWeatherMapController {
                 .subscribe(this::onOpenWeatherMapFeed, this::onError);
     }
 
-    private void onOpenWeatherMapFeed(OpenWeatherMapFeed openWeatherMapFeed) {
+    public void onOpenWeatherMapFeed(OpenWeatherMapFeed openWeatherMapFeed) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -71,7 +75,7 @@ public class OpenWeatherMapController {
         });
     }
 
-    private void onOpenWeatherMapForecast(OpenWeatherMapForecast openWeatherMapForecast) {
+    public void onOpenWeatherMapForecast(OpenWeatherMapForecast openWeatherMapForecast) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {

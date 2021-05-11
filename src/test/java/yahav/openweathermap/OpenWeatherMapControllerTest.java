@@ -1,7 +1,8 @@
 package yahav.openweathermap;
 
-import io.reactivex.rxjava3.core.Single;
 import javafx.scene.control.RadioButton;
+import javafx.scene.input.MouseEvent;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -16,9 +17,7 @@ public class OpenWeatherMapControllerTest {
         com.sun.javafx.application.PlatformImpl.startup(() -> {
         });
     }
-    private void givenOpenWeatherMapController(){
 
-    }
     @Test
     public void initialize() {
         // given
@@ -40,11 +39,28 @@ public class OpenWeatherMapControllerTest {
     @Test
     public void onSubmit(){
         //given
-       //OpenWeatherMapService service = mock(OpenWeatherMapService.class);
+        //OpenWeatherMapService service = factory.newInstance();
+        OpenWeatherMapService service = mock(OpenWeatherMapService.class);
+        OpenWeatherMapController controller = new OpenWeatherMapController();
+
+        //when
+        controller.onSubmit(mock(MouseEvent.class));
+
+        //then
+        verify(controller.celsius).isSelected();
+        Assert.assertEquals(controller.units,"imperial");
+        // verify(controller.service).getWeatherForecast("New York", "imperial");
     }
     @Test
     public void onOpenWeatherMapFeed(){
+        //given
+        OpenWeatherMapController controller = new OpenWeatherMapController();
+        OpenWeatherMapFeed openWeatherMapFeed = mock(OpenWeatherMapFeed.class);
 
+        //when
+        controller.onOpenWeatherMapFeed(openWeatherMapFeed);
+
+        //then
     }
     @Test
     public void onOpenWeatherMapForecast(){
